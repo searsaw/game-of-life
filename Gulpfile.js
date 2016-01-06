@@ -4,6 +4,7 @@ var babelify = require('babelify');
 var source = require('vinyl-source-stream');
 
 var APP_DIRECTORY = 'app'
+var BUILD_DIRECTORY = 'build'
 
 gulp.task('build:js', function() {
     browserify({
@@ -17,11 +18,11 @@ gulp.task('build:js', function() {
       this.emit('end');
     })
     .pipe(source('bundle.js'))
-    .pipe(gulp.dest(APP_DIRECTORY));
+    .pipe(gulp.dest(BUILD_DIRECTORY));
 });
 
 gulp.task('watch:js', ['build:js'], function() {
-    gulp.watch('src/js/**/*.*', ['build:js']);
+    gulp.watch('app/**/*.js', ['build:js']);
 });
 
  gulp.task('default', ['build:js']);

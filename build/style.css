@@ -1,0 +1,12 @@
+.container {
+    padding-top: 20px;
+}
+
+circle {
+    fill: steelblue;
+    transition: fill .5s;
+}
+
+circle.alive {
+    fill: red;
+}
